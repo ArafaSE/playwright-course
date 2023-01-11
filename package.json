@@ -1,0 +1,20 @@
+{
+  "name": "playwright-course",
+  "version": "1.0.0",
+  "description": "Code and Tasks to be used in Playwright course",
+  "main": "index.js",
+  "scripts": {
+    "report": "",
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.vodafone.com/mohamed-mostafaabdelaal3/pw-course.git"
+  },
+  "keywords": [],
+  "author": "Mohamed Arafa",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.29.1"
+  }
+}
