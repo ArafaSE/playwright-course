@@ -22,14 +22,14 @@ test.afterEach(async () => {
 
 test.describe('Login user', async () => {
     test("Login user with correct email and password", async () => {
-        homePage.clickHeaderLink(' Signup / Login');
-        loginPage.login('mohamed222@gmail.com', 'Password123')
+        await homePage.clickHeaderLink(' Signup / Login');
+        await loginPage.login('mohamed222@gmail.com', 'Password123')
         await expect(page.getByText(' Logged in as Mohamed')).toBeVisible();
     });
     
     test("Login user with incorrect email and password", async () => {
-        homePage.clickHeaderLink(' Signup / Login');
-        loginPage.login('hamada@gmail.com', 'Password123');
+        await homePage.clickHeaderLink(' Signup / Login');
+        await loginPage.login('hamada@gmail.com', 'Password123');
         await expect(page.getByText('Your email or password is incorrect!')).toBeVisible();
     });
 });

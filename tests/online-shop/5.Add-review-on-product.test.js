@@ -1,8 +1,6 @@
 import { chromium, test, expect } from "@playwright/test"
 
-test("Register user", async () => {
-    // generate rando email address
-    const emailAddress = (Math.random() + 1).toString(36).substring(2) + "@gmail.com";
+test("Add review on product", async () => {
     // 1. Launch browser
     const browser = await chromium.launch();
     const page = await browser.newPage();

@@ -8,6 +8,7 @@ class HomePage extends BasePage {
         this.loginLink = "//a[@href='/login']";
         this.productsLink = "//a[@href='/products']";
         this.deleteAccountBtn = page.locator("//a[@href='/delete_account']")
+        this.continueShopingBtn = page.getByRole("button", {name: 'Continue Shopping'})
     }
 
     async navigate(){
@@ -15,11 +16,19 @@ class HomePage extends BasePage {
     }
 
     async clickHeaderLink(name){
-        await this.page.getByRole('link', {name: `${name}`}).click();
+        await this.page.getByRole('link', {name: `${name}`}).nth(0).click();
     }
 
     async getElementByText(text){
         return await this.page.getByText(text)
+    }
+
+    async addProductToCart(productId){
+        await this.page.locator(`[data-product-id='${productId}']`).nth(0).click();
+    }
+
+    async submitContinueBtn(){
+        await this.continueShopingBtn.click();
     }
 
 }

@@ -26,9 +26,9 @@ test.afterEach(async () => {
 
 test.describe('Register user', async () => {
     test("Register user with new email address", async () => {
-        homePage.clickHeaderLink(' Signup / Login');
+        await homePage.clickHeaderLink(' Signup / Login');
         await expect(page.getByText('New User Signup!')).toBeVisible();
-        loginPage.signup('Mohamed', (Math.random() + 1).toString(36).substring(2) + "@gmail.com");
+        await loginPage.signup('Mohamed', (Math.random() + 1).toString(36).substring(2) + "@gmail.com");
         await expect(page.getByText('ENTER ACCOUNT INFORMATION')).toBeVisible();
         await sigupPage.fillAccountEnformationData();
         await expect(accountCreatedPage.accountCreatedTxt).toBeVisible();
