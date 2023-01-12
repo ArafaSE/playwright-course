@@ -1,9 +1,8 @@
 import BasePage from './Base.page';
 
-class CheckoutPage extends BasePage {
+class PaymentPage extends BasePage {
     constructor(page){
         super(page);
-
         // locators 
         this.nameOnCard =  page.locator('[data-qa="name-on-card"]')
         this.cardNumber =  page.locator('[data-qa="card-number"]')
@@ -19,11 +18,11 @@ class CheckoutPage extends BasePage {
     }
 
     async enterPaymentDetails(NameOnCard, CardNumber, Cvv, ExpMonth, ExpYear){
-        await this.nameOnCard.fill(NameOnCard);
-        await this.cardNumber.fill(CardNumber);
-        await this.cvv.fill(Cvv);
-        await this.expiryMonth.fill(ExpMonth);
-        await this.expiryYear.fill(ExpYear);
+        await this.nameOnCard.type(NameOnCard);
+        await this.cardNumber.type(CardNumber);
+        await this.cvv.type(Cvv);
+        await this.expiryMonth.type(ExpMonth);
+        await this.expiryYear.type(ExpYear);
     }
 
     async payAndConfirmOrder(){
@@ -32,4 +31,4 @@ class CheckoutPage extends BasePage {
 
 }
 
-export default CheckoutPage
+export default PaymentPage

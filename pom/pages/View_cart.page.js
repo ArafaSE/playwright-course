@@ -3,7 +3,6 @@ import BasePage from './Base.page';
 class ViewCartPage extends BasePage {
     constructor(page){
         super(page);
-
         // locators 
         this.proceedToCheckoutBtn = page.getByText('Proceed To Checkout')
     }
@@ -15,7 +14,6 @@ class ViewCartPage extends BasePage {
     async proceedToCheckout(){
         await this.proceedToCheckoutBtn.click();
     }
-
 }
 
 export default ViewCartPage

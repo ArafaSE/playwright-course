@@ -3,7 +3,6 @@ import BasePage from './Base.page';
 class SignupPage extends BasePage {
     constructor(page){
         super(page);
-
         // locators 
         this.getGenderMaleRBtn = page.locator("#id_gender1");
         this.getPasswordInput = page.locator("[data-qa='password']")
