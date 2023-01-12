@@ -3,7 +3,6 @@ import BasePage from './Base.page';
 class ProductDetailsPage extends BasePage {
     constructor(page){
         super(page);
-
         // locators 
         this.reviewName = page.locator('#name')
         this.reviewEmail = page.locator('#email')
@@ -11,7 +10,7 @@ class ProductDetailsPage extends BasePage {
         this.submitReviewBtn = page.locator('#button-review')
     }
 
-    async navigate(id){
+    async navigate(id = '1'){
         await super.navigate('/product_details/'+`${id}`);
     }
 

@@ -3,11 +3,7 @@ import BasePage from './Base.page';
 class HomePage extends BasePage {
     constructor(page){
         super(page);
-
-        // selectors 
-        this.loginLink = "//a[@href='/login']";
-        this.productsLink = "//a[@href='/products']";
-        this.deleteAccountBtn = page.locator("//a[@href='/delete_account']")
+        // Locators 
         this.continueShopingBtn = page.getByRole("button", {name: 'Continue Shopping'})
     }
 

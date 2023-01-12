@@ -3,7 +3,6 @@ import BasePage from './Base.page';
 class CheckoutPage extends BasePage {
     constructor(page){
         super(page);
-
         // locators 
         this.deliveryAddressHeaderTxt = page.getByText('Your delivery address')
         this.billingAddressHeaderTxt = page.getByText('Your billing address')

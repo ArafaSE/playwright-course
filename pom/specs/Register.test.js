@@ -1,40 +1,41 @@
-import { chromium, test, expect } from "@playwright/test"
+import { test, expect } from "@playwright/test"
 
 import HomePage from "../pages/Home.page";
 import LoginPage from "../pages/Login.page";
 import SignupPage from "../pages/Signup.page";
 import AccountCreatedPage from "../pages/Account_created.page";
 
-let browser, page, homePage, loginPage, sigupPage, accountCreatedPage;
+let homePage, loginPage, sigupPage, accountCreatedPage, randomEmail;
 
-test.beforeEach(async () => {
-    browser = await chromium.launch();
-    page = await browser.newPage();
-
+test.beforeEach(async ({page}) => {
     homePage = new HomePage(page);
     loginPage = new LoginPage(page);
     sigupPage = new SignupPage(page);
     accountCreatedPage = new AccountCreatedPage(page);
-
-    await homePage.navigate();
+    
+    randomEmail = (Math.random() + 1).toString(36).substring(2) + "@gmail.com";
+    await loginPage.navigate();
 });
 
-test.afterEach(async () => {
-    await page.close();
-    await browser.close();
-})
-
 test.describe('Register user', async () => {
-    test("Register user with new email address", async () => {
-        await homePage.clickHeaderLink(' Signup / Login');
+    test("Register user with new email address", async ({page}) => {
+        // 1. From login page verify that 'New User Signup' text is visible
         await expect(page.getByText('New User Signup!')).toBeVisible();
-        await loginPage.signup('Mohamed', (Math.random() + 1).toString(36).substring(2) + "@gmail.com");
+        // 2. login with name and random email
+        await loginPage.signup('Mohamed', randomEmail);
+        // 3. Verify that 'ENTER ACCOUNT INFORMATION' text is visible
         await expect(page.getByText('ENTER ACCOUNT INFORMATION')).toBeVisible();
+        // 4. Fill all account information form
         await sigupPage.fillAccountEnformationData();
+        // 5. Verify that 'ACCOUNT CREATED!' text msg is visible
         await expect(accountCreatedPage.accountCreatedTxt).toBeVisible();
+        // 6. Click on 'Continue' button
         await accountCreatedPage.getContinuBtn.click();
+        // 7. Verify that ' Logged in as Mohamed' in home page
         await expect(await homePage.getElementByText(' Logged in as Mohamed')).toBeVisible();
-        await homePage.deleteAccountBtn.click();
+        // 8. Click on 'Delete Account' button from page header
+        await homePage.clickHeaderLink('Delete Account');
+        // 9. Verify that 'ACCOUNT DELETED!' text is visible
         await expect(page.getByText('ACCOUNT DELETED!')).toBeVisible();
     });
     
