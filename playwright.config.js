@@ -26,7 +26,7 @@ const config = {
   // Two retries for each test
   retries: 2,
   // Limit the number of workers on CI, use default locally
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 3 : undefined,
   // 'github' for GitHub Actions CI to generate annotations, plus a concise 'dot'
   // 'html' when running locally
   reporter: process.env.CI ? 'html' : 'html',
