@@ -15,11 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps:
-      - name: Use variables
-        run: |
-          echo "Email variable :  ${{ vars.LOGIN_EMAIL }}
-          echo "PAssword variable :  ${{ vars.LOGIN_PASSWORD }}
-          echo "Name variable :  ${{ vars.LOGIN_NAME }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
