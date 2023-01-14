@@ -15,7 +15,7 @@ test.describe('Login user', async () => {
     // Local Configuration: Run tests in this describe block with portrait-like viewport.
     test.use({ viewport: { width: 600, height: 900 } });
 
-    test("Login user with correct email and password", async ({page}) => {
+    test("Login user with correct email and password @regression", async ({page}) => {
         // 1. From Home page Click on 'Login' header button to open the page
         await homePage.clickHeaderLink(' Signup / Login');
         // 2. Write your login email and passowrd then submit

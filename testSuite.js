@@ -7,16 +7,23 @@ let command = `npx playwright test`
 
 switch(argv.mode){
     case 'hp':
-        command += ` --grep-invert @wip --grep @hp`
+        command += ` --grep-invert @todo --grep @hp`
         break;
     case 'regression':
-        command += ` --grep-invert @wip --grep @regression`
+        command += ` --grep-invert @todo --grep @regression`
         break;
     case 'full':
         break;
     default: 
-        command += ` --grep-invert @wip`
+        command += ` --grep-invert @todo`
         break;
+}
+
+if(argv.tags){
+    let tagss = argv.tags.split(', ')
+    for (const tag in tagss) {
+        command += ` --grep @${tagss[tag]}`
+    }
 }
 
 if(argv.browser) command += ` --project=${argv.browser}`;
