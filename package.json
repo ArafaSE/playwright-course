@@ -4,17 +4,21 @@
   "description": "Code and Tasks to be used in Playwright course",
   "main": "index.js",
   "scripts": {
-    "report": "",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "test-hp": "npx playwright test --grep @hp",
+    "test-non-todo": "npx playwright test --grep-invert @todo"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.vodafone.com/mohamed-mostafaabdelaal3/pw-course.git"
+    "url": "https://github.com/ArafaSE/playwright-course.git"
   },
   "keywords": [],
   "author": "Mohamed Arafa",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.29.1"
+    "@playwright/test": "^1.29.1",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.0.3",
+    "yargs": "^17.6.2"
   }
 }
