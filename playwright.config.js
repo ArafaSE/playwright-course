@@ -20,8 +20,8 @@ const config = {
   },
   projects: [
     {name: 'chromium'},
-    // {name: 'firefox'},
-    // {name: 'webkit'},
+    {name: 'firefox'},
+    {name: 'webkit'},
   ],
   // Two retries for each test
   retries: 2,
