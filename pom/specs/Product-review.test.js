@@ -28,7 +28,7 @@ test.describe('Product review', async () => {
         // 5. verify that 'Write Your Review' text displayed
         await expect(page.getByText('Write Your Review')).toBeVisible();
         // 6. Addd review by filling 'name, email, and review' inputs, then submit the review 
-        await productDetailsPage.writeReview('Mohamed', 'mohamed222@gmail.com', 'Perfect material with good price, Thanks!')
+        await productDetailsPage.writeReview(process.env.LOGIN_NAME, process.env.LOGIN_EMAIL, 'Perfect material with good price, Thanks!')
         // 7. verify that success msg displayed as 'Thank you for your review.'
         await expect(page.getByText("Thank you for your review.")).toBeVisible();
     });

@@ -22,7 +22,7 @@ test.describe('Register user', async () => {
         // 1. From login page verify that 'New User Signup' text is visible
         await expect(page.getByText('New User Signup!')).toBeVisible();
         // 2. login with name and random email
-        await loginPage.signup('Mohamed', randomEmail);
+        await loginPage.signup(`${process.env.LOGIN_NAME}`, randomEmail);
         // 3. Verify that 'ENTER ACCOUNT INFORMATION' text is visible
         await expect(page.getByText('ENTER ACCOUNT INFORMATION')).toBeVisible();
         // 4. Fill all account information form
@@ -32,7 +32,7 @@ test.describe('Register user', async () => {
         // 6. Click on 'Continue' button
         await accountCreatedPage.getContinuBtn.click();
         // 7. Verify that ' Logged in as Mohamed' in home page
-        await expect(await homePage.getElementByText(' Logged in as Mohamed')).toBeVisible();
+        await expect(await homePage.getElementByText(` Logged in as ${process.env.LOGIN_NAME}`)).toBeVisible();
         // 8. Click on 'Delete Account' button from page header
         await homePage.clickHeaderLink('Delete Account');
         // 9. Verify that 'ACCOUNT DELETED!' text is visible

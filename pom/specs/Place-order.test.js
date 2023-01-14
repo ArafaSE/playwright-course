@@ -21,7 +21,7 @@ test.describe('Place order', async () => {
         // 1. Navigate to login page and login
         await loginPage.navigate();
         await loginPage.login(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
-        await expect(page.getByText(' Logged in as Mohamed')).toBeVisible();
+        await expect(page.getByText(` Logged in as ${process.env.LOGIN_NAME}`)).toBeVisible();
 
         // 2. Add second product to cart and verify it's added 
         await homePage.addProductToCart('2');

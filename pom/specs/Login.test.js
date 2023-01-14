@@ -21,7 +21,7 @@ test.describe('Login user', async () => {
         // 2. Write your login email and passowrd then submit
         await loginPage.login(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
         // 3. Verify that 'Logged in as username' is visible
-        await expect(page.getByText(' Logged in as Mohamed')).toBeVisible();
+        await expect(page.getByText(` Logged in as ${process.env.LOGIN_NAME}`)).toBeVisible();
     });
     
     test("Login user with incorrect email and password", async ({page}) => {
