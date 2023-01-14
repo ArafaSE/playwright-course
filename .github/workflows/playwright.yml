@@ -6,9 +6,8 @@ on:
     branches: [main]
 env:
   # Setting an environment variable with the value of a configuration variable
-  LOGIN_EMAIL: ${{ vars.LOGIN_EMAIL }}
-  LOGIN_PASSWORD: ${{ vars.LOGIN_PASSWORD }}
-  LOGIN_NAME: ${{ vars.LOGIN_NAME }}
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
 jobs:
   test:
     timeout-minutes: 60
