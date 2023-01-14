@@ -29,7 +29,7 @@ const config = {
   workers: process.env.CI ? 2 : undefined,
   // 'github' for GitHub Actions CI to generate annotations, plus a concise 'dot'
   // 'html' when running locally
-  reporter: process.env.CI ? 'github' : 'html',
+  reporter: process.env.CI ? 'html' : 'html',
 };
 
 module.exports = config;
