@@ -4,8 +4,9 @@
   "description": "Code and Tasks to be used in Playwright course",
   "main": "index.js",
   "scripts": {
-    "report": "",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "test-hp": "npx playwright test --grep @hp",
+    "test-non-todo": "npx playwright test --grep-invert @todo"
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,7 @@
   "author": "Mohamed Arafa",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.29.1"
+    "@playwright/test": "^1.29.1",
+    "dotenv": "^16.0.3"
   }
 }

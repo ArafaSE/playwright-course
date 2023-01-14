@@ -17,10 +17,10 @@ test.beforeEach(async ({page}) => {
 });
 
 test.describe('Place order', async () => {
-    test("login before checkout", async ({page}) => {
+    test("login before checkout @hp", async ({page}) => {
         // 1. Navigate to login page and login
         await loginPage.navigate();
-        await loginPage.login('mohamed222@gmail.com', 'Password123')
+        await loginPage.login(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
         await expect(page.getByText(' Logged in as Mohamed')).toBeVisible();
 
         // 2. Add second product to cart and verify it's added 

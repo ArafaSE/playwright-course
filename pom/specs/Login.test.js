@@ -12,11 +12,14 @@ test.beforeEach(async ({page}) => {
 });
 
 test.describe('Login user', async () => {
+    // Local Configuration: Run tests in this describe block with portrait-like viewport.
+    test.use({ viewport: { width: 600, height: 900 } });
+
     test("Login user with correct email and password", async ({page}) => {
         // 1. From Home page Click on 'Login' header button to open the page
         await homePage.clickHeaderLink(' Signup / Login');
         // 2. Write your login email and passowrd then submit
-        await loginPage.login('mohamed222@gmail.com', 'Password123')
+        await loginPage.login(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
         // 3. Verify that 'Logged in as username' is visible
         await expect(page.getByText(' Logged in as Mohamed')).toBeVisible();
     });

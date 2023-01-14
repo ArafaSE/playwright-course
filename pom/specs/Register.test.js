@@ -18,7 +18,7 @@ test.beforeEach(async ({page}) => {
 });
 
 test.describe('Register user', async () => {
-    test("Register user with new email address", async ({page}) => {
+    test("Register user with new email address @hp", async ({page}) => {
         // 1. From login page verify that 'New User Signup' text is visible
         await expect(page.getByText('New User Signup!')).toBeVisible();
         // 2. login with name and random email
@@ -39,7 +39,7 @@ test.describe('Register user', async () => {
         await expect(page.getByText('ACCOUNT DELETED!')).toBeVisible();
     });
     
-    test("Register user with existing email address", async () => {
+    test("Register user with existing email address @todo", async () => {
         
     });
 });

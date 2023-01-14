@@ -15,14 +15,14 @@ test.beforeEach(async ({page}) => {
 });
 
 test.describe('Product review', async () => {
-    test("Add review on product", async ({page}) => {
+    test("Add review on product", async ({page, baseURL}) => {
         // 1. Login to your account 
         await loginPage.navigate();
-        await loginPage.login('mohamed222@gmail.com', 'Password123')
+        await loginPage.login(process.env.LOGIN_EMAIL, process.env.LOGIN_PASSWORD);
         // 2. Clcik on 'products' button from page header
         await homePage.clickHeaderLink('Products');
         // 3. verify the user redirected into '/products' url
-        await expect(page).toHaveURL(productsPage.baseUrl + '/products');
+        await expect(page).toHaveURL(baseURL + '/products');
         // 4. Click on 'Review product' btn for first product
         await productsPage.reviewProduct(0);
         // 5. verify that 'Write Your Review' text displayed
