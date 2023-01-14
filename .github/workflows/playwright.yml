@@ -6,12 +6,20 @@ on:
     branches: [main]
 env:
   # Setting an environment variable with the value of a configuration variable
-  ENV_VARIABLE: test
+  LOGIN_EMAIL: ${{ vars.LOGIN_EMAIL }}
+  LOGIN_PASSWORD: ${{ vars.LOGIN_PASSWORD }}
+  LOGIN_NAME: ${{ vars.LOGIN_NAME }}
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    environment: test
     steps:
+      - name: Use variables
+        run: |
+          echo "Email variable :  ${{ vars.LOGIN_EMAIL }}
+          echo "PAssword variable :  ${{ vars.LOGIN_PASSWORD }}
+          echo "Name variable :  ${{ vars.LOGIN_NAME }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
